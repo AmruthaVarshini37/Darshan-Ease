@@ -1,41 +1,16 @@
-# 🛕 DarshanEase
+# React + Vite
 
-## Temple Darshan Ticket Booking System
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-### Project Overview
+Currently, two official plugins are available:
 
-DarshanEase is a web-based Temple Darshan Ticket Booking System developed as part of my internship project. It allows devotees to register, view temples, select darshan slots, and book tickets online. The system also helps organizers and administrators manage temples, bookings, and users efficiently.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
----
+## React Compiler
 
-## 📄 Project Architecture
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-The project architecture document includes:
+## Expanding the ESLint configuration
 
-- Technical Architecture
-- ER Diagram
-- Features
-- Roles and Responsibilities
-- User Flow
-- MVC Architecture
-
-**Document:** `Project_Architecture_DarshanEase.pdf`
-
----
-
-## 💻 Technologies Used
-
-- HTML
-- CSS
-- JavaScript
-- Node.js
-- Express.js
-- MongoDB
-
----
-
-## 🚀 Project Status
-
-✅ Project Architecture Completed
-
-The remaining modules will be added as the project progresses.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
