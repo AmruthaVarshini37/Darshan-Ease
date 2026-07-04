@@ -7,10 +7,12 @@ const {
   register,
   login,
   getProfile,
+  logout,
 } = require("../controllers/authController");
 
 router.post("/register", register);
 router.post("/login", login);
 router.get("/profile", authMiddleware, getProfile);
+router.post("/logout", authMiddleware, logout);
 
 module.exports = router;

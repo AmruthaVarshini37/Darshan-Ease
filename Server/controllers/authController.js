@@ -28,7 +28,6 @@ exports.register = async (req, res) => {
     res.status(201).json({
       message: "User Registered Successfully",
     });
-
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -67,19 +66,32 @@ exports.login = async (req, res) => {
       message: "Login Successful",
       token,
     });
-
   } catch (error) {
     res.status(500).json({
       message: error.message,
     });
   }
 };
+
+// Get Profile
 exports.getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
 
     res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
 
+// Logout
+exports.logout = async (req, res) => {
+  try {
+    res.status(200).json({
+      message: "Logout Successful",
+    });
   } catch (error) {
     res.status(500).json({
       message: error.message,
