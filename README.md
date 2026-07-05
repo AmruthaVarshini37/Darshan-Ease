@@ -215,6 +215,12 @@ JWT_SECRET=mysecretkey
 - Temple Reviews
 
 ---
+👨‍💻 Developers
+
+**Ayinavalli Amrutha Varshini**
+**Kosetti Uday Kumar**
+
+Project:
 
 **Darshan Ease – Temple Darshan Ticket Booking System**
 
