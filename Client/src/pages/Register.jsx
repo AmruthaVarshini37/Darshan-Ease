@@ -17,44 +17,120 @@ function Register() {
       });
 
       alert(res.data.message);
+
+      setName("");
+      setEmail("");
+      setPassword("");
     } catch (error) {
       alert(error.response?.data?.message || "Registration Failed");
     }
   };
 
   return (
-    <div>
-      <h2>Register</h2>
+    <div
+      style={{
+        minHeight: "90vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "linear-gradient(to right,#8B0000,#B22222)",
+      }}
+    >
+      <form
+        onSubmit={handleRegister}
+        style={{
+          width: "400px",
+          background: "#fff",
+          padding: "40px",
+          borderRadius: "15px",
+          boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
+        }}
+      >
+        <h2
+          style={{
+            textAlign: "center",
+            color: "#8B0000",
+            marginBottom: "30px",
+            fontSize: "35px",
+          }}
+        >
+          Register
+        </h2>
 
-      <form onSubmit={handleRegister}>
         <input
           type="text"
           placeholder="Enter Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginBottom: "20px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            fontSize: "16px",
+            boxSizing: "border-box",
+          }}
         />
-
-        <br /><br />
 
         <input
           type="email"
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginBottom: "20px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            fontSize: "16px",
+            boxSizing: "border-box",
+          }}
         />
-
-        <br /><br />
 
         <input
           type="password"
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "12px",
+            marginBottom: "25px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            fontSize: "16px",
+            boxSizing: "border-box",
+          }}
         />
 
-        <br /><br />
+        <button
+          type="submit"
+          style={{
+            width: "100%",
+            padding: "14px",
+            background: "#8B0000",
+            color: "#fff",
+            border: "none",
+            borderRadius: "8px",
+            fontSize: "18px",
+            fontWeight: "bold",
+            cursor: "pointer",
+          }}
+        >
+          Register
+        </button>
 
-        <button type="submit">Register</button>
+        <p
+          style={{
+            textAlign: "center",
+            marginTop: "20px",
+            color: "#666",
+          }}
+        >
+          Join Darshan Ease Today 🙏
+        </p>
       </form>
     </div>
   );
