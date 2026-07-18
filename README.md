@@ -2,44 +2,49 @@
 
 ## 📌 Project Overview
 
-Darshan Ease is a MERN Stack web application developed to simplify the process of booking temple darshan tickets online. The system allows devotees to register, log in securely, browse available darshan tickets, view their profile, and manage bookings through an easy-to-use interface.
+Darshan Ease is a MERN Stack web application developed to simplify the process of booking temple darshan tickets online. The system enables devotees to register, log in securely, browse available darshan tickets, manage bookings, and view their profile through a simple and user-friendly interface.
 
-The project aims to reduce long waiting queues at temples by providing an online booking platform that is simple, secure, and accessible from anywhere.
+The main objective of this project is to reduce long waiting queues at temples by providing an efficient online booking platform that is secure, responsive, and accessible from anywhere.
 
 ---
 
 # ✨ Features
 
-- User Registration
-- User Login & Logout
-- JWT Authentication
-- View User Profile
-- Browse Darshan Tickets
-- View Orders
-- Shopping Cart
-- MongoDB Database Integration
-- Responsive User Interface
+- ✅ User Registration
+- ✅ User Login & Logout
+- ✅ JWT Authentication
+- ✅ Protected Routes
+- ✅ View User Profile
+- ✅ Browse Darshan Tickets
+- ✅ Book Darshan Tickets
+- ✅ View Orders
+- ✅ Shopping Cart
+- ✅ MongoDB Database Integration
+- ✅ Responsive User Interface
 
 ---
 
 # 🛠️ Technologies Used
 
-### Frontend
+## Frontend
+
 - React.js
 - React Router DOM
 - Axios
-- JavaScript
 - HTML5
 - CSS3
+- JavaScript
 
-### Backend
+## Backend
+
 - Node.js
 - Express.js
 - JWT Authentication
 - Bcrypt.js
 - CORS
 
-### Database
+## Database
+
 - MongoDB Atlas
 - Mongoose
 
@@ -47,14 +52,17 @@ The project aims to reduce long waiting queues at temples by providing an online
 
 # 📂 Project Structure
 
-```
-DarshanEase
+```text
+Darshan-Ease
 │
 ├── Client
-│   ├── components
-│   ├── pages
-│   ├── services
-│   └── App.jsx
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── services
+│   │   └── App.jsx
+│   │
+│   └── package.json
 │
 ├── Server
 │   ├── controllers
@@ -62,48 +70,84 @@ DarshanEase
 │   ├── models
 │   ├── routes
 │   ├── config
-│   └── index.js
+│   ├── index.js
+│   └── package.json
+│
+├── documentation
 │
 └── README.md
 ```
 
 ---
 
-# 🔑 Authentication
+# 🔐 Authentication
 
 The application uses **JSON Web Token (JWT)** authentication.
 
-Features include:
+Authentication Features:
 
-- Secure Login
+- Secure User Login
 - Protected Routes
 - User Profile Authentication
-- Logout
+- Logout Functionality
 
 ---
 
 # 📦 Main Modules
 
-### Home
+### 🏠 Home
+
 Displays the welcome page and project overview.
 
-### Register
+### 👤 Register
+
 Allows new users to create an account.
 
-### Login
-Allows registered users to log into the application securely.
+### 🔑 Login
 
-### Profile
+Allows registered users to log in securely.
+
+### 🙍 Profile
+
 Displays logged-in user information.
 
-### Products
-Shows available Darshan tickets.
+### 🎫 Products
 
-### Orders
-Displays booked darshan ticket details.
+Displays available Darshan tickets.
 
-### Cart
+### 📋 Orders
+
+Displays booked Darshan ticket details.
+
+### 🛒 Cart
+
 Displays selected booking items.
+
+---
+
+# 🔗 API Endpoints
+
+## Authentication
+
+```
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/profile
+POST /api/auth/logout
+```
+
+## Products
+
+```
+GET /api/products
+```
+
+## Orders
+
+```
+POST /api/orders
+GET  /api/orders
+```
 
 ---
 
@@ -117,39 +161,24 @@ Displays selected booking items.
 
 # ⚙️ Installation
 
-### Clone Repository
+## Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/AmruthaVarshini37/Darshan-Ease.git
 ```
 
-### Install Client Dependencies
-
-```bash
-cd Client
-npm install
-```
-
-### Install Server Dependencies
+## Install Backend
 
 ```bash
 cd Server
 npm install
 ```
 
----
-
-# ▶️ Run Frontend
+## Install Frontend
 
 ```bash
-cd Client
-npm run dev
-```
-
-Runs on:
-
-```
-http://localhost:5173
+cd ../Client
+npm install
 ```
 
 ---
@@ -167,10 +196,25 @@ or
 nodemon index.js
 ```
 
-Runs on:
+Backend runs on:
 
 ```
 http://localhost:5000
+```
+
+---
+
+# ▶️ Run Frontend
+
+```bash
+cd Client
+npm run dev
+```
+
+Frontend runs on:
+
+```
+http://localhost:5173
 ```
 
 ---
@@ -183,9 +227,7 @@ Example:
 
 ```env
 PORT=5000
-
-MONGO_URI=Your_MongoDB_Atlas_Connection_String
-
+MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=mysecretkey
 ```
 
@@ -193,9 +235,11 @@ JWT_SECRET=mysecretkey
 
 # 📸 Screenshots
 
+Include screenshots of:
+
 - Home Page
-- Login Page
 - Register Page
+- Login Page
 - Products Page
 - Profile Page
 - Orders Page
@@ -203,29 +247,51 @@ JWT_SECRET=mysecretkey
 
 ---
 
+# 🎥 Project Demonstration
+
+The project demonstrates the following workflow:
+
+- User Registration
+- User Login
+- JWT Authentication
+- Browse Darshan Tickets
+- Book Darshan Ticket
+- View Orders
+- View User Profile
+- Logout
+
+---
+
 # 🚀 Future Enhancements
 
 - Online Payment Gateway
-- Temple Search
 - QR Code Ticket Generation
 - Email Confirmation
+- SMS Notifications
 - Admin Dashboard
 - Booking History
 - Seat Availability
+- Temple Search
 - Temple Reviews
+- Multi-language Support
 
 ---
-👨‍💻 Developers
 
-**Ayinavalli Amrutha Varshini**
-**Kosetti Uday Kumar**
+# 👨‍💻 Developers
 
-Project:
+- **Ayinavalli Amrutha Varshini**
+- **Kosetti Uday Kumar**
 
-**Darshan Ease – Temple Darshan Ticket Booking System**
+---
+
+# 📌 GitHub Repository
+
+Repository Link:
+
+https://github.com/AmruthaVarshini37/Darshan-Ease
 
 ---
 
 # 📄 License
 
-This project is developed for educational and learning purposes.
+This project is developed for educational and learning purposes as part of the SmartBridge Internship Program.
