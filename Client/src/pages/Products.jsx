@@ -9,14 +9,44 @@ function Products() {
   }, []);
 
   const fetchProducts = async () => {
-    try {
-      const res = await API.get("/products");
-      setProducts(res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  try {
+    const res = await API.get("/products");
+    setProducts(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+  const bookTicket = async (product) => {
+  try {
+    const token = localStorage.getItem("token");
 
+    const profile = await API.get("/auth/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    await API.post(
+      "/orders",
+      {
+        user: profile.data._id,
+        product: product._id,
+        quantity: 1,
+        totalPrice: product.price,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    alert("Darshan Ticket Booked Successfully");
+  } catch (error) {
+    console.log(error);
+    alert("Booking Failed");
+  }
+};
   return (
     <div
       style={{
@@ -120,30 +150,30 @@ function Products() {
               >
                 {product.category}
               </span>
-
               <button
-                style={{
-                  width: "100%",
-                  marginTop: "20px",
-                  padding: "14px",
-                  background: "#8B0000",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "10px",
-                  fontSize: "17px",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                  transition: "0.3s",
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.background = "#B22222";
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.background = "#8B0000";
-                }}
-              >
-                🛕 Book Darshan
-              </button>
+  style={{
+    width: "100%",
+    marginTop: "20px",
+    padding: "14px",
+    background: "#8B0000",
+    color: "white",
+    border: "none",
+    borderRadius: "10px",
+    fontSize: "17px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "0.3s",
+  }}
+  onClick={() => bookTicket(product)}
+  onMouseOver={(e) => {
+    e.target.style.background = "#B22222";
+  }}
+  onMouseOut={(e) => {
+    e.target.style.background = "#8B0000";
+  }}
+>
+  🛕 Book Darshan
+</button>
             </div>
           </div>
         ))}

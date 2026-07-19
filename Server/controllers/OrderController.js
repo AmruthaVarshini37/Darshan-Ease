@@ -3,7 +3,15 @@ const Order = require("../models/Order");
 // Create Order
 exports.createOrder = async (req, res) => {
   try {
-    const order = await Order.create(req.body);
+    const { user, product, quantity, totalPrice } = req.body;
+
+    const order = await Order.create({
+      user: req.user ? req.user.id : user,
+      product,
+      quantity: quantity || 1,
+      totalPrice,
+      status: "Pending",
+    });
 
     res.status(201).json({
       message: "Order Created Successfully",

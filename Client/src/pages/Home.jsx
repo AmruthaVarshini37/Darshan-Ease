@@ -1,4 +1,6 @@
+import { useNavigate } from "react-router-dom";
 function Home() {
+  const navigate = useNavigate();
   return (
     <div>
 
@@ -37,22 +39,22 @@ function Home() {
         >
           Book Temple Darshan Tickets Online
         </p>
-
         <button
-          style={{
-            marginTop: "30px",
-            padding: "15px 40px",
-            background: "#FFD700",
-            color: "black",
-            border: "none",
-            borderRadius: "8px",
-            fontSize: "20px",
-            fontWeight: "bold",
-            cursor: "pointer",
-          }}
-        >
-          Book Now
-        </button>
+  style={{
+    marginTop: "30px",
+    padding: "15px 40px",
+    background: "#FFD700",
+    color: "black",
+    border: "none",
+    borderRadius: "8px",
+    fontSize: "20px",
+    fontWeight: "bold",
+    cursor: "pointer",
+  }}
+  onClick={() => navigate("/products")}
+>
+  Book Now
+</button>
       </div>
 
       {/* About Section */}

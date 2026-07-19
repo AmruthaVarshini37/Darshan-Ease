@@ -1,12 +1,28 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import API from "../services/api";
 
 function Cart() {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  const fetchOrders = async () => {
+    try {
+      const res = await API.get("/orders");
+      setOrders(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div
       style={{
         minHeight: "100vh",
         background: "#f5f5f5",
-        padding: "60px 20px",
+        padding: "50px",
       }}
     >
       <h1
@@ -19,54 +35,53 @@ function Cart() {
         🛒 My Cart
       </h1>
 
-      <div
-        style={{
-          maxWidth: "500px",
-          margin: "auto",
-          background: "#fff",
-          borderRadius: "15px",
-          padding: "40px",
-          boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
-          textAlign: "center",
-        }}
-      >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png"
-          alt="Cart"
-          style={{
-            width: "120px",
-            marginBottom: "20px",
-          }}
-        />
-
-        <h2>Your Cart is Empty</h2>
-
-        <p
-          style={{
-            color: "gray",
-            marginTop: "15px",
-          }}
-        >
-          Book your Darshan tickets and they will appear here.
-        </p>
-
-        <Link to="/products">
-          <button
+      {orders.length === 0 ? (
+        <h2 style={{ textAlign: "center" }}>
+          No Tickets Booked
+        </h2>
+      ) : (
+        orders.map((order) => (
+          <div
+            key={order._id}
             style={{
-              marginTop: "25px",
-              padding: "12px 25px",
-              background: "#8B0000",
-              color: "white",
-              border: "none",
-              borderRadius: "8px",
-              cursor: "pointer",
-              fontSize: "16px",
+              maxWidth: "700px",
+              margin: "20px auto",
+              background: "#fff",
+              padding: "25px",
+              borderRadius: "15px",
+              boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
             }}
           >
-            Browse Tickets
-          </button>
-        </Link>
-      </div>
+            <h2 style={{ color: "#8B0000" }}>
+              {order.product?.name}
+            </h2>
+
+            <p>
+              <b>User :</b> {order.user?.name}
+            </p>
+
+            <p>
+              <b>Quantity :</b> {order.quantity}
+            </p>
+
+            <p>
+              <b>Total :</b> ₹ {order.totalPrice}
+            </p>
+
+            <p>
+              <b>Status :</b>{" "}
+              <span
+                style={{
+                  color: "green",
+                  fontWeight: "bold",
+                }}
+              >
+                {order.status}
+              </span>
+            </p>
+          </div>
+        ))
+      )}
     </div>
   );
 }
